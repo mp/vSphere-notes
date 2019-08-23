@@ -1,0 +1,26 @@
+"Snapshot error on the server."
+
+Snapshots create link errors and can take up a lot of space, or little at all. They are unreliable, and not a form of backup. You should only leave a snapshot for a few days, or a week at the most.
+
+Rule: Only have 2 snaphots at home, and one snapshot at work.
+Consolidate snapshots often. This does not delete the snapshot or merge up (like in Professional), it just cleans up the broken links but leaves the snapshot for you to delete.
+
+If you are going to do upgrade experiments on a shared server, you should clone the server and do it on that. Then, redo the steps on the public server. This is probably less necessary at home, but a shared workspace is a perfect example of why that is important. Being snapshot happy can fill up space and kill the server - always mess around with a clone server.
+
+Snapshot manager.
+
+snapshot 1
+	snapshot 2
+		Create files a, b
+		snapshot 3
+			o You are here
+			
+
+Points to note:
+You have too many snapshots. 2 is the maximum you should have at home (1 at work).
+You can delete snapshot 1 and 2, which still leaves 3.
+You can delete snapshot 1, 2 and 3, which still leaves "You are here".The files a,b will remain because you did not revert to snapshot 1 or 2.
+The act of reverting takes you out of the current state and into and old one.
+
+
+You can delete intermediate snapshots, but do so after a consolidation when the machine is powered off.

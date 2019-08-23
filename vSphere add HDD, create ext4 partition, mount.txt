@@ -1,0 +1,23 @@
+Edit settings, add a new disk, New device: new hard disk, choose a datastore (ideally on another device if possible)
+
+edit settings: now you see hard disk 2
+
+
+Recognise the disk in the host without a reboot:
+apt-get install scsitools
+rescan-scsi-bus
+
+This will now list /dev/sdb
+instead of fdisk, use parted
+
+Do:
+https://www.tecmint.com/parted-command-to-create-resize-rescue-linux-disk-partitions/
+for start specify: 0% (alternatively, specify in MB)
+for end, specify 100%
+quit
+
+(Alternatively, do a one liner parted: 'sudo parted -a opt /dev/sda mkpart primary ext4 0% 100%' from the guide https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux)
+
+format the ext4 partition with # mkfs.ext4 /dev/sdb1 (in the tutorial)
+
+Now it is mountable
